@@ -1,0 +1,213 @@
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #3498db;
+    --accent-color: #e74c3c;
+    --light-color: #ecf0f1;
+    --dark-color: #2c3e50;
+    --success-color: #2ecc71;
+    --danger-color: #e74c3c;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+                url('../static/titanic.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: var(--light-color);
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: 90%;
+    max-width: 800px;
+    background-color: rgba(44, 62, 80, 0.9);
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    margin: 2rem 0;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+    color: var(--light-color);
+}
+
+h1 {
+    font-size: 2.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+.form-container {
+    margin: 1.5rem 0;
+}
+
+.form-group {
+    margin-bottom: 1.2rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+input, select {
+    width: 100%;
+    padding: 0.8rem;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--light-color);
+    font-size: 1rem;
+}
+
+.predict-button {
+    width: 100%;
+    padding: 1rem;
+    background-color: var(--secondary-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 1rem;
+}
+
+.predict-button:hover {
+    background-color: #2980b9;
+}
+
+footer {
+    text-align: center;
+    margin-top: 2rem;
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+/* Results Page Styles */
+.result-container {
+    text-align: center;
+}
+
+.result-card {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 2rem;
+    margin: 1.5rem 0;
+}
+
+.result-survived h2 {
+    color: var(--success-color);
+}
+
+.result-not-survived h2 {
+    color: var(--danger-color);
+}
+
+.probability {
+    margin: 2rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.probability-circle {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: conic-gradient(var(--secondary-color) 0% var(--percentage),
+                rgba(255, 255, 255, 0.1) var(--percentage) 100%);
+    margin-bottom: 1rem;
+}
+
+.probability-circle span {
+    font-size: 2rem;
+    font-weight: bold;
+    background-color: var(--primary-color);
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.details {
+    text-align: left;
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin: 1.5rem 0;
+}
+
+.details ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.details li {
+    margin-bottom: 0.5rem;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.details li:last-child {
+    border-bottom: none;
+}
+
+.try-again-button {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    background-color: var(--secondary-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.try-again-button:hover {
+    background-color: #2980b9;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+        padding: 1.5rem;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    .probability-circle {
+        width: 120px;
+        height: 120px;
+    }
+
+    .probability-circle span {
+        width: 100px;
+        height: 100px;
+        font-size: 1.5rem;
+    }
+}

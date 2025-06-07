@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Result | Titanic Survival</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container result-container">
+        <header>
+            <h1>Your Titanic Survival Prediction</h1>
+        </header>
+
+        <div class="result-card">
+            {% if result.survived %}
+                <div class="result-survived">
+                    <h2>You Would Have Survived!</h2>
+                    <div class="probability">
+                        <div class="probability-circle" style="--percentage: {{ result.probability }}%">
+                            <span>{{ result.probability }}%</span>
+                        </div>
+                        <p>Probability of Survival</p>
+                    </div>
+                </div>
+            {% else %}
+                <div class="result-not-survived">
+                    <h2>You Would Not Have Survived</h2>
+                    <div class="probability">
+                        <div class="probability-circle" style="--percentage: {{ result.probability }}%">
+                            <span>{{ result.probability }}%</span>
+                        </div>
+                        <p>Probability of Survival</p>
+                    </div>
+                </div>
+            {% endif %}
+
+            <div class="details">
+                <h3>Your Details:</h3>
+                <ul>
+                    <li><strong>Class:</strong> {{ result.pclass }}</li>
+                    <li><strong>Gender:</strong> {{ result.sex }}</li>
+                    <li><strong>Age:</strong> {{ result.age }}</li>
+                    <li><strong>Fare:</strong> £{{ result.fare }}</li>
+                    <li><strong>Embarked:</strong>
+                        {% if result.embarked == 'C' %}Cherbourg
+                        {% elif result.embarked == 'Q' %}Queenstown
+                        {% else %}Southampton{% endif %}
+                    </li>
+                    <li><strong>Siblings/Spouses:</strong> {{ result.sibsp }}</li>
+                    <li><strong>Parents/Children:</strong> {{ result.parch }}</li>
+                </ul>
+            </div>
+
+            <a href="/" class="try-again-button">Try Another Prediction</a>
+        </div>
+
+        <footer>
+            <p>Remember this is just a prediction based on historical data.</p>
+        </footer>
+    </div>
+</body>
+</html>

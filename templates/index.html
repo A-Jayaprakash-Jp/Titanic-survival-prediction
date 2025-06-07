@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Titanic Survival Predictor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Would You Have Survived the Titanic?</h1>
+            <p class="subtitle">Enter your details to find out your chances of survival</p>
+        </header>
+
+        <div class="form-container">
+            <form action="/predict" method="post">
+                <div class="form-group">
+                    <label for="pclass">Passenger Class:</label>
+                    <select id="pclass" name="pclass" required>
+                        <option value="">Select class</option>
+                        <option value="1">First Class</option>
+                        <option value="2">Second Class</option>
+                        <option value="3">Third Class</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="sex">Gender:</label>
+                    <select id="sex" name="sex" required>
+                        <option value="">Select gender</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="age">Age:</label>
+                    <input type="number" id="age" name="age" min="0" max="100" step="0.1" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="fare">Fare Paid (£):</label>
+                    <input type="number" id="fare" name="fare" min="0" step="0.01" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="embarked">Embarkation Port:</label>
+                    <select id="embarked" name="embarked" required>
+                        <option value="">Select port</option>
+                        <option value="C">Cherbourg</option>
+                        <option value="Q">Queenstown</option>
+                        <option value="S">Southampton</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="sibsp">Number of Siblings/Spouses Aboard:</label>
+                    <input type="number" id="sibsp" name="sibsp" min="0" max="10" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="parch">Number of Parents/Children Aboard:</label>
+                    <input type="number" id="parch" name="parch" min="0" max="10" required>
+                </div>
+
+                <button type="submit" class="predict-button">Predict Survival</button>
+            </form>
+        </div>
+
+        <footer>
+            <p>Based on the famous Titanic dataset. Model accuracy: ~80%</p>
+        </footer>
+    </div>
+</body>
+</html>
